@@ -1,0 +1,24 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es6", "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "outDir": "./bin",
+    "sourceMap": true,
+    "module": "commonjs",
+    "watch": true,
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": [
+    "./src/**/*",
+  ]
+}
