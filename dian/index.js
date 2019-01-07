@@ -7,9 +7,9 @@ rest
   .post("http://upload.chaojiying.net/Upload/Processing.php", {
     multipart: true,
     data: {
-      user: "账号",
-      pass: "密码",
-      softid: "softid", //软件ID 可在用户中心生成
+      user: "bianhuhu",
+      pass: "bian1992518",
+      softid: "898334", //软件ID 可在用户中心生成
       codetype: "9004", //验证码类型 http://www.chaojiying.com/price.html 选择
       userfile: rest.file(
         filename,
