@@ -65,14 +65,12 @@ async function run() {
     });
     let arr = [];
 
-    console.log(1212, top);
     for (let i = top; i < top + 44; i++) {
-      for (let j = 40; j < 320; j++) {
+      for (let j = 60; j < 320; j++) {
         var p = 320 * i + j;
         p = p << 2;
         if (data[p] === 255 && data[p + 1] === 0 && data[p + 2] === 255) {
           arr.push(j);
-          break;
         }
       }
     }

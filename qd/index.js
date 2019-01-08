@@ -67,7 +67,7 @@ async function run() {
   }
 
   const distance = await getDistance();
-
+  console.log(distance, "distance");
   const button = await page.$(".geetest_slider_button");
   const box = await button.boundingBox();
   const axleX = Math.floor(box.x + box.width / 2);
@@ -81,9 +81,9 @@ async function run() {
     await page.mouse.move(box.x + distance / 4, axleY, { steps: 20 });
     await page.waitFor(200);
     await page.mouse.move(box.x + distance / 3, axleY, { steps: 18 });
-    await page.waitFor(350);
+    await page.waitFor(210);
     await page.mouse.move(box.x + distance / 2, axleY, { steps: 15 });
-    await page.waitFor(400);
+    await page.waitFor(230);
     await page.mouse.move(box.x + (distance / 3) * 2, axleY, { steps: 15 });
     await page.waitFor(350);
     await page.mouse.move(box.x + (distance / 4) * 3, axleY, { steps: 10 });
@@ -97,11 +97,12 @@ async function run() {
       return document.querySelector(".geetest_result_box").innerText;
     });
     console.log(text);
+    let step = 0;
     if (text) {
-      if (text.includes("怪物吃了拼图")) {
-        await page.waitFor(500);
-        await btnSlider(distance);
-      } else if (text.includes("拖动滑块将悬浮图像正确拼合")) {
+      if (
+        text.includes("怪物吃了拼图") ||
+        text.includes("拖动滑块将悬浮图像正确拼合")
+      ) {
         await page.waitFor(2000);
         await page.click(".geetest_refresh_1");
         await page.waitFor(1000);
