@@ -16,8 +16,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@dwd/mosaic": "0.0.1",
-    "@dwd/restler": "^3.4.0",
     "@types/cheerio": "^0.22.10",
     "@types/fs-extra": "^5.0.4",
     "@types/lodash": "^4.14.119",
