@@ -1,7 +1,7 @@
 ##### 滑块验证码以及点触验证码破解
 
 ```
-qd/ 前端网滑块验证码
+qianduanwang/ 前端网滑块验证码
 src/sms  人工打码
 src/dianchu  同盾点触验证码
 src/index   顺丰滑块验证码
