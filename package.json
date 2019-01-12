@@ -28,6 +28,7 @@
     "gm": "^1.23.1",
     "image-pixels": "^2.2.0",
     "lodash": "^4.17.11",
+    "node-tesseract": "^0.2.7",
     "output-file-sync": "^2.0.1",
     "puppeteer": "^1.11.0",
     "resemblejs": "^3.0.0",
