@@ -9,9 +9,9 @@ async function getPosition() {
       .post("http://upload.chaojiying.net/Upload/Processing.php", {
         multipart: true,
         data: {
-          user: "用户",
-          pass: "密码",
-          softid: "软件ID", //软件ID 可在用户中心生成
+          user: "bianhuhu",
+          pass: "bian1992518",
+          softid: "898334", //软件ID 可在用户中心生成
           codetype: "9004", //验证码类型 http://www.chaojiying.com/price.html 选择
           userfile: rest.file(
             filename,

@@ -133,5 +133,6 @@ typings/
 res.js
 qd/*.png
 tongdun/*.png
-local/
 ocr/numbered.png
+bin
+test/
