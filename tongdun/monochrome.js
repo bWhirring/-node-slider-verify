@@ -95,6 +95,16 @@ async function run() {
     await page.waitFor(300);
     await page.mouse.up();
     await page.waitFor(1000);
+
+    const text = await page.evaluate(() => {
+      return document.querySelector(".td-pop-slide-msg").innerText;
+    });
+    console.log(text);
+    if (text.includes("验证失败")) {
+      await page.waitFor(2000);
+      const step = await getDistance();
+      await btnSlider(step);
+    }
   }
 }
 
