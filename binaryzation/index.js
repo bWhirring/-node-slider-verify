@@ -34,7 +34,4 @@ for (var i = 0; i < data.length; i += 4) {
 }
 ctx.putImageData(imgData, 0, 0);
 
-acedia({
-  data: canvas.toDataURL(),
-  dir: path.resolve(__dirname, "./gray.png")
-});
+acedia(canvas.toDataURL(), path.resolve(__dirname, "./gray.png"));

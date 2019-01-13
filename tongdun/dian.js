@@ -34,10 +34,8 @@ async function run() {
       data: bgImg.toDataURL()
     };
   });
-  acedia({
-    data,
-    dir: path.resolve(__dirname, "test.png")
-  });
+  acedia(data, path.resolve(__dirname, "test.png"));
+
   const { x, y } = await bgElement.boundingBox();
   const { pos } = await inquirer.prompt({
     name: "pos",

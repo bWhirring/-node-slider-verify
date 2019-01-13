@@ -4,6 +4,7 @@ const path = require("path");
 const pixels = require("image-pixels");
 const resemble = require("resemblejs");
 const gm = require("gm");
+const acedia = require("acedia");
 
 let page = null;
 const bgImg = path.resolve(__dirname, "bg.png");
@@ -42,10 +43,7 @@ async function run() {
         bg: bg.toDataURL()
       };
     });
-    bg = bg.replace(/^data:image\/\w+;base64,/, "");
-    var bgDataBuffer = new Buffer(bg, "base64");
-
-    fs.writeFileSync(bgImg, bgDataBuffer);
+    acedia(bg, bgImg);
 
     gm(bgImg)
       .blur(1)

@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const pixels = require("image-pixels");
 const resemble = require("resemblejs");
+const acedia = require("acedia");
 
 let page = null;
 const bgImg = path.resolve(__dirname, "bg.png");
@@ -33,14 +34,8 @@ async function run() {
         fullbg: fullbg.toDataURL()
       };
     });
-
-    bg = bg.replace(/^data:image\/\w+;base64,/, "");
-    fullbg = fullbg.replace(/^data:image\/\w+;base64,/, "");
-    var bgDataBuffer = new Buffer(bg, "base64");
-    var fullbgDataBuffer = new Buffer(fullbg, "base64");
-
-    fs.writeFileSync(bgImg, bgDataBuffer);
-    fs.writeFileSync(fullbgImg, fullbgDataBuffer);
+    acedia(bg, bgImg);
+    acedia(fullbg, fullbgImg);
 
     resemble(bgImg)
       .compareTo(fullbgImg)
@@ -67,7 +62,6 @@ async function run() {
   }
 
   const distance = await getDistance();
-  console.log(distance, "distance");
   const button = await page.$(".geetest_slider_button");
   const box = await button.boundingBox();
   const axleX = Math.floor(box.x + box.width / 2);

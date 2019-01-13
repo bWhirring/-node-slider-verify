@@ -1,8 +1,8 @@
 const puppeteer = require("puppeteer");
-const fs = require("fs");
 const path = require("path");
 const pixels = require("image-pixels");
 const gm = require("gm");
+const acedia = require("acedia");
 
 let page = null;
 const bgImg = path.resolve(__dirname, "bg.png");
@@ -12,7 +12,7 @@ async function run() {
   const browser = await puppeteer.launch({
     headless: false
   });
-  page = await browser.newPage();
+  page = (await browser.newPage())[0];
 
   await page.goto(
     "https://x.tongdun.cn/onlineExperience/slidingPuzzle?source=baidu&plan=%E5%8F%8D%E6%AC%BA%E8%AF%88&unit=%E6%99%BA%E8%83%BD%E9%AA%8C%E8%AF%81&keyword=%E6%99%BA%E8%83%BD%E9%AA%8C%E8%AF%81%E7%A0%81&e_creative=24659987438&e_adposition=cl1&e_keywordid=101045415224&e_keywordid2=101045415224&audience=236369"
@@ -40,10 +40,7 @@ async function run() {
         bg: bg.toDataURL()
       };
     });
-    bg = bg.replace(/^data:image\/\w+;base64,/, "");
-    var bgDataBuffer = new Buffer(bg, "base64");
-
-    fs.writeFileSync(bgImg, bgDataBuffer);
+    acedia(bg, bgImg);
 
     gm(bgImg)
       .noise("gaussian")
@@ -58,8 +55,8 @@ async function run() {
     });
     let arr = [];
 
-    for (let i = top + 10; i < top + 34; i++) {
-      for (let j = 60; j < 320; j++) {
+    for (let i = top; i < top + 44; i++) {
+      for (let j = 80; j < 320; j++) {
         var p = 320 * i + j;
         p = p << 2;
         if (data[p] === 0 && data[p + 1] === 0 && data[p + 2] === 0) {
@@ -94,7 +91,7 @@ async function run() {
     await page.waitFor(350);
     await page.mouse.move(box.x + (distance / 4) * 3, axleY, { steps: 10 });
     await page.waitFor(350);
-    await page.mouse.move(box.x + distance + 10, axleY, { steps: 10 });
+    await page.mouse.move(box.x + distance + 15, axleY, { steps: 10 });
     await page.waitFor(300);
     await page.mouse.up();
     await page.waitFor(1000);

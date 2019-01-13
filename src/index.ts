@@ -154,5 +154,3 @@ class SliderVerify {
 const sliderVerify = new SliderVerify(680, 390);
 
 sliderVerify.init();
-// const res = sliderVerify.getSliderDistance();
-// console.log(res);
