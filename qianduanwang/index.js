@@ -8,12 +8,13 @@ const acedia = require("acedia");
 let page = null;
 const bgImg = path.resolve(__dirname, "bg.png");
 const fullbgImg = path.resolve(__dirname, "fullbg.png");
+const diffImg = path.resolve(__dirname, `diff.png`);
 
 async function run() {
   const browser = await puppeteer.launch({
     headless: false
   });
-  page = await browser.newPage();
+  page = (await browser.pages())[0];
 
   await page.goto("https://www.qdfuns.com/");
   await page.waitForSelector(".hand");
@@ -41,10 +42,10 @@ async function run() {
       .compareTo(fullbgImg)
       .ignoreColors()
       .onComplete(async function(data) {
-        fs.writeFileSync(path.resolve(__dirname, `diff.png`), data.getBuffer());
+        fs.writeFileSync(diffImg, data.getBuffer());
       });
 
-    var { data } = await pixels(path.resolve(__dirname, `diff.png`), {
+    var { data } = await pixels(diffImg, {
       cache: false
     });
     let arr = [];
@@ -82,6 +83,8 @@ async function run() {
     await page.waitFor(350);
     await page.mouse.move(box.x + (distance / 4) * 3, axleY, { steps: 10 });
     await page.waitFor(350);
+    await page.mouse.move(box.x + distance + 50, axleY, { steps: 10 });
+    await page.waitFor(300);
     await page.mouse.move(box.x + distance + 30, axleY, { steps: 10 });
     await page.waitFor(300);
     await page.mouse.up();
