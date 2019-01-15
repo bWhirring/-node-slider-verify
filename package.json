@@ -1,29 +1,29 @@
 {
-  "name": "ts-demo",
+  "name": "node-slider-verify",
   "version": "1.0.0",
-  "description": "ts demo",
-  "main": "index.js",
+  "description": "puppeteer Crack captcha",
   "scripts": {
     "start": "npx tsc"
   },
   "keywords": [
-    "typescript"
+    "puppeteer",
+    "gm",
+    "tesseract",
+    "resemble"
   ],
   "author": "huhu",
   "repository": {
     "type": "nodejs",
-    "url": "git@192.168.1.66:FE/parrot.git"
+    "url": "https://github.com/bWhirring/-node-slider-verify.git"
   },
   "license": "MIT",
   "dependencies": {
-    "@types/cheerio": "^0.22.10",
     "@types/fs-extra": "^5.0.4",
     "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.18",
     "@types/puppeteer": "^1.11.1",
     "acedia": "0.0.3",
     "canvas": "^2.2.0",
-    "cheerio": "^1.0.0-rc.2",
     "fs-extra": "^7.0.1",
     "get-pixels": "^3.3.2",
     "gm": "^1.23.1",
@@ -31,7 +31,6 @@
     "inquirer": "^6.2.1",
     "lodash": "^4.17.11",
     "node-tesseract": "^0.2.7",
-    "output-file-sync": "^2.0.1",
     "puppeteer": "^1.11.0",
     "resemblejs": "^3.0.0",
     "restler": "^3.4.0",
