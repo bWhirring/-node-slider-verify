@@ -1,11 +1,11 @@
 import * as puppeteer from "puppeteer";
 
 (async () => {
-  const broswer = await puppeteer.launch({
+  const browser = await puppeteer.launch({
     headless: false
   });
 
-  const page = (await broswer.pages())[0];
+  const page = (await browser.pages())[0];
 
   await page.goto("https://dun.163.com/trial/sense", {
     waitUntil: "networkidle0"
